@@ -3,7 +3,9 @@ import './App.css';
 import AddTask from './components/AddTask';
 import CompletedTask from './components/CompletedTask';
 import InitialTask from './components/InitialTask';
+import Login from './components/Login';
 import MyTask from './components/MyTask';
+import PrivateRoute from './components/PrivateRoute';
 import Signup from './components/Signup';
 import Main from './layout/Main';
 
@@ -19,20 +21,24 @@ function App() {
         },
         {
           path: '/my-task',
-          element: <MyTask/>
+          element: <PrivateRoute><MyTask/></PrivateRoute>
         },
         {
           path: 'completed-task',
-          element: <CompletedTask/>,
+          element: <PrivateRoute><CompletedTask/></PrivateRoute>,
           loader: () => fetch('http://localhost:5000/completedTask')
         },
         {
           path: 'add-task',
-          element: <AddTask/>
+          element: <PrivateRoute><AddTask/></PrivateRoute>
         },
         {
           path: '/signup',
           element: <Signup/>
+        },
+        {
+          path: '/login',
+          element: <Login/>
         }
       ]
     }

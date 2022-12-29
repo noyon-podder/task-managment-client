@@ -1,10 +1,26 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CompletedTask = () => {
     const completedTaskData = useLoaderData();
 
-    console.log(completedTaskData)
+    const completeTaskDelete = id => {
+        const confirm = window.confirm("Are you sure Delete this task")
+          if(confirm) {
+            fetch(`http://localhost:5000/completedTaskDelete/${id}`, {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.deletedCount > 0){
+                    toast.success("Task was Deleted successfully")
+                }
+
+            })
+          }
+    }
     return (
         <div>
            
@@ -13,16 +29,13 @@ const CompletedTask = () => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" className="py-3 px-6">
-                    Product name
+                    Completed Task name
                 </th>
                 <th scope="col" className="py-3 px-6">
-                    Color
+                    Delete
                 </th>
                 <th scope="col" className="py-3 px-6">
-                    Category
-                </th>
-                <th scope="col" className="py-3 px-6">
-                    Price
+                  Button
                 </th>
             </tr>
         </thead>
@@ -33,13 +46,14 @@ const CompletedTask = () => {
                {complete.initialTask}
             </th>
             <td className="py-4 px-6">
-                Sliver
+            <button onClick={() => completeTaskDelete(complete._id)}><i className="uil uil-trash-alt"></i> Delete</button>
             </td>
             <td className="py-4 px-6">
-                Laptop
+            <Link to="/my-task"><button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-3 py-1.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Not Completed</button></Link>
             </td>
             <td className="py-4 px-6">
-                $2999
+               <button><i className="uil uil-message"> Comment</i></button>
+               
             </td>
         </tr>)
              
