@@ -11,7 +11,7 @@ const MyTask = () => {
     const [taskData, setTaskData] = useState({})
 
     useEffect(() => {
-        fetch('http://localhost:5000/my-task')
+        fetch('https://task-management-server-red.vercel.app/my-task')
         .then(res => res.json())
         .then(data => setTasks(data))
     }, [])
@@ -21,7 +21,7 @@ const MyTask = () => {
       
         const confirm = window.confirm("Are you sure Delete this task")
           if(confirm) {
-            fetch(`http://localhost:5000/deleteTask/${id}`, {
+            fetch(`https://task-management-server-red.vercel.app/deleteTask/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const MyTask = () => {
 
     const CompletedTaskButtonUpdate = task => {
         const completed = task.completed
-        fetch(`http://localhost:5000/completedTask/${task._id}`, {
+        fetch(`https://task-management-server-red.vercel.app/completedTask/${task._id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ const InitialTask = () => {
         
         const initialTask = e.target.task.value;
         
-        fetch('http://localhost:5000/my-task', {
+        fetch('https://task-management-server-red.vercel.app/my-task', {
             method:"POST",
             headers: {
                 'content-type': 'application/json' 

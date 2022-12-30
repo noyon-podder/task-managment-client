@@ -26,7 +26,7 @@ function App() {
         {
           path: 'completed-task',
           element: <PrivateRoute><CompletedTask/></PrivateRoute>,
-          loader: () => fetch('http://localhost:5000/completedTask')
+          loader: () => fetch('https://task-management-server-red.vercel.app/completedTask')
         },
         {
           path: 'add-task',

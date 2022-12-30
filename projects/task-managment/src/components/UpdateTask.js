@@ -8,7 +8,7 @@ const UpdateTask = ({showModal, setShowModal, taskData}) => {
 
         const initialTask = e.target.task.value;
 
-        fetch(`http://localhost:5000/updateTask/${taskData._id}`, {
+        fetch(`https://task-management-server-red.vercel.app/updateTask/${taskData._id}`, {
           method: 'PUT',
           headers: {
             'content-type': 'application/json'

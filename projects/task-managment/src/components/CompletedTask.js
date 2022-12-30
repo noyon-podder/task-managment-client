@@ -8,7 +8,7 @@ const CompletedTask = () => {
     const completeTaskDelete = id => {
         const confirm = window.confirm("Are you sure Delete this task")
           if(confirm) {
-            fetch(`http://localhost:5000/completedTaskDelete/${id}`, {
+            fetch(`https://task-management-server-red.vercel.app/completedTaskDelete/${id}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
