@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const InitialTask = () => {
 
@@ -18,6 +19,7 @@ const InitialTask = () => {
         .then(data => {
             if(data.acknowledged){
                 e.target.reset()
+                toast.success('Task added successfully')
             }
         })
     }
