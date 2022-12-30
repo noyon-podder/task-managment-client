@@ -26,7 +26,8 @@ const Login = () => {
         .catch(err => console.log(err.message))
     }
     return (
-        <div>
+        <div className='w-3/4 mx-auto'>
+          <h2 className='text-center text-indigo-600 my-4 text-2xl font-semibold'>Login</h2>
         <form onSubmit={handleLogin}>
         <div class="mb-6">
           <label

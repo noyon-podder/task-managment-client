@@ -26,6 +26,7 @@ const userSignUp = e => {
 }
   return (
     <div className="w-3/4 mx-auto border mt-5 p-5" >
+      <h2 className="text-center text-indigo-600 font-semibold mt-4 text-2xl">SignUp</h2>
       <form onSubmit={userSignUp}>
         <div class="mb-6">
           <label
@@ -83,7 +84,7 @@ const userSignUp = e => {
           Submit
         </button>
       </form>
-      <span>Already you have an account, please <Link to="/login">Login</Link> now</span>
+      <span>Already you have an account, please <Link to="/login" className="text-indigo-600 hover:underline">Login</Link> now</span>
     </div>
   );
 };
